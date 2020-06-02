@@ -42,6 +42,8 @@ The overall solution comprises the following components:
 
 The following diagram illustrates the high-level traffic flow. Tenant restrictions requires TLS inspection only on traffic to Azure AD, not to the Office 365 cloud services. This distinction is important, because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
 
+Only users from permited tenants will be able to access resources, any user that is connected to your infrastructure that attempts to access a tenant that is not permited will not gain access.
+
 ![Tenant restrictions traffic flow - diagram](./media/tenant-restrictions/traffic-flow.png)
 
 ## Set up tenant restrictions
@@ -70,7 +72,7 @@ For each incoming request to login.microsoftonline.com, login.microsoft.com, and
 
 The headers should include the following elements:
 
-- For *Restrict-Access-To-Tenants*, use a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair looks like: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- For *Restrict-Access-To-Tenants*, use a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is known on the restricted tenant including the contoso.onmicrosoft.com or tenant ID of teh tenatn in casue can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair looks like: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com,contoso.com, ******-*****-***`
 
 - For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the tenant restrictions. For example, to declare Contoso as the tenant that set the tenant restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
