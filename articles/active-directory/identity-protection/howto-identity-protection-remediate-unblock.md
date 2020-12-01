@@ -46,7 +46,9 @@ Administrators are given two options when resetting a password for their users:
 
 - **Generate a temporary password** - By generating a temporary password, you can immediately bring an identity back into a safe state. This method requires contacting the affected users because they need to know what the temporary password is. Because the password is temporary, the user is prompted to change the password to something new during the next sign-in.
 
-- **Require the user to reset password** - Requiring the users to reset passwords enables self-recovery without contacting help desk or an administrator. This method only applies to users that are registered for Azure AD MFA and SSPR. For users that have not been registered, this option isn't available.
+- **Require the user to reset password** - Requiring the users to reset passwords enables self-recovery without contacting help desk or an administrator. This method only applies to users that are registered for Azure AD MFA and SSPR. For users that have not been registered, this option isn't available. 
+
+On-Premisses Password Reset will not remediate risk, these actions need to be performed on the cloud.
 
 ### Dismiss user risk
 
