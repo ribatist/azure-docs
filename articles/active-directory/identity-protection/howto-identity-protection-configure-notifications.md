@@ -67,6 +67,8 @@ As an administrator, you can switch sending a weekly digest email on or off and 
 
 Configure the weekly digest email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Weekly digest**.
 
+Weekly digest email are sent every Tuesday.
+
 ## See also
 
 - [Azure Active Directory Identity Protection](./overview-identity-protection.md)
